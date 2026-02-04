@@ -3,3 +3,5 @@ uvicorn
 requests
 pydantic
 pywin32
+pyinstaller
+pyinstaller-hooks-contrib
