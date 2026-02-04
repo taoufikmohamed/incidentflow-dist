@@ -1,6 +1,6 @@
 # IncidentFlow
 
-**Automated Incident Response Platform for Windows**
+**AI-Powered Multi-Agent MCP Server for Automated Slack Alerts**
 
 ---
 
