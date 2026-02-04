@@ -71,27 +71,18 @@
             <div class="architecture-wrapper">
                 <pre class="mermaid">
 flowchart TD
-    subgraph WS ["Windows Server Environment"]
+    subgraph Env ["Windows Server Environment"]
         direction TB
-        WEL["Windows Event Logs"] -->|Tail| LA["Log Analytics Service"]
-        LA -->|HTTP POST| MCP["MCP Server (The Brain)"]
-        
-        subgraph Services ["Managed Services"]
-            LA
-            MCP
-            SA["Slack Notification Service"]
-        end
-
-        MCP -->|Classify| AI["DeepSeek AI API"]
-        AI -->|Severity| MCP
-        
-        MCP -->|"Critical/High"| SA
-        SA -->|Webhook| SL["Slack Workspace"]
+        WEL["Windows Event Logs"] -->|"Polling"| LA["Log Agent Service"]
+        LA -->|"HTTP POST"| MCP["MCP Server"]
+        MCP -->|"AI Analysis"| AI["DeepSeek AI API"]
+        AI -->|"Severity"| MCP
+        MCP -->|"Critical Alerts"| SA["Slack Agent Service"]
+        SA -->|"Webhook"| SL["Slack Workspace"]
     end
 
     style MCP fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
     style AI fill:#fbbf24,stroke:#fff,stroke-width:2px,color:#000
-    style Services fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1),color:#fff
                 </pre>
             </div>
         </div>
