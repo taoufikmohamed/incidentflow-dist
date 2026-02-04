@@ -97,7 +97,18 @@ nssm restart IncidentFlow-LogAgent
 
 ---
 
+## 🗑️ Uninstallation
+
+To completely remove IncidentFlow services and built executables:
+
+1.  **Open PowerShell as Administrator**.
+2.  **Run the Uninstaller**:
+    ```powershell
+    .\install\uninstall_exes.ps1
+    ```
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
