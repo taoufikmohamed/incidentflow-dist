@@ -73,25 +73,29 @@
                 that log monitoring, AI classification, and external notifications remain resilient and independent.
             </p>
             <div class="architecture-wrapper">
-                <pre class="mermaid">
-flowchart TD
-    subgraph Env ["Windows Server Environment"]
-        direction TB
-        WEL["Windows Event Logs"] -->|"Polling"| LA["Log Agent Service"]
-        LA -->|"Secure HTTP"| MCP["MCP Server"]
-        MCP -->|"AI Analysis"| AI["DeepSeek AI API"]
-        AI -->|"Severity Signal"| MCP
-        MCP -->|"Alert Dispatch"| SA["Slack Agent Service"]
-        SA -->|"HTTPS Webhook"| SL["Slack Workspace"]
-    end
+                <div class="mermaid">
+                    flowchart TD
+                    WEL["Windows Event Logs"] --> POLL["Polling"]
+                    POLL --> LA["Log Agent Service"]
+                    LA --> HTTP["Secure HTTP"]
+                    HTTP --> MCP["MCP Server"]
+                    MCP --> ANALYZE["AI Analysis"]
+                    ANALYZE --> AI["DeepSeek AI API"]
+                    AI --> SIGNAL["Severity Signal"]
+                    SIGNAL --> MCP
+                    MCP --> DISPATCH["Alert Dispatch"]
+                    DISPATCH --> SA["Slack Agent Service"]
+                    SA --> WEBHOOK["HTTPS Webhook"]
+                    WEBHOOK --> SL["Slack Workspace"]
 
-    style MCP fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff,rx:10,ry:10
-    style AI fill:#fbbf24,stroke:#fff,stroke-width:2px,color:#000,rx:10,ry:10
-    style LA fill:rgba(255,255,255,0.1),stroke:rgba(255,255,255,0.2),color:#fff,rx:10,ry:10
-    style SA fill:rgba(255,255,255,0.1),stroke:rgba(255,255,255,0.2),color:#fff,rx:10,ry:10
-    style WEL fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1),color:#94a3b8,rx:5,ry:5
-    style SL fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1),color:#94a3b8,rx:5,ry:5
-                </pre>
+                    classDef blueNode fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
+                    classDef yellowNode fill:#fbbf24,stroke:#fff,stroke-width:2px,color:#000
+                    classDef glassNode fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1),color:#94a3b8
+
+                    class MCP blueNode
+                    class AI yellowNode
+                    class WEL,LA,SA,SL glassNode
+                </div>
             </div>
         </div>
     </section>
@@ -107,23 +111,12 @@ flowchart TD
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({
             startOnLoad: true,
-            theme: 'base',
-            themeVariables: {
-                darkMode: true,
-                primaryColor: '#1e293b',
-                primaryTextColor: '#f8fafc',
-                primaryBorderColor: '#334155',
-                lineColor: '#64748b',
-                secondaryColor: '#0f172a',
-                tertiaryColor: '#0f172a',
-                fontFamily: 'Inter'
-            },
+            theme: 'dark',
             securityLevel: 'loose',
             flowchart: {
                 useMaxWidth: true,
                 htmlLabels: true,
-                curve: 'cardinal',
-                padding: 40
+                curve: 'basis'
             }
         });
     </script>
