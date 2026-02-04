@@ -2,7 +2,17 @@
 
 **Automated Incident Response Platform for Windows**
 
-IncidentFlow monitors Windows Event Logs, uses AI to classify the severity of incidents, and automatically reports them to Slack. It runs as a set of background Windows Services for continuous operation.
+---
+
+### 💼 The Business Case
+In modern infrastructure, **downtime is measured in dollars.** IncidentFlow bridges the gap between raw system errors and human action:
+- **Reduce MTTR (Mean Time to Repair)**: AI immediately classifies severity, allowing teams to prioritize critical failures.
+- **24/7 Monitoring**: Automated service-based detection ensures no system error goes unnoticed, even at 3 AM.
+- **Noise Reduction**: Context-aware AI filtering prevents notification fatigue by focusing only on what matters.
+
+[**Live Demo (Landing Page)**](https://taoufikmohamed.github.io/incidentflow-dist/website/)
+
+---
 
 ## 🚀 Features
 
