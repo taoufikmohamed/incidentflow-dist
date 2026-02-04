@@ -75,26 +75,15 @@
             <div class="architecture-wrapper">
                 <div class="mermaid">
                     flowchart TD
-                    WEL["Windows Event Logs"] --> POLL["Polling"]
-                    POLL --> LA["Log Agent Service"]
-                    LA --> HTTP["Secure HTTP"]
-                    HTTP --> MCP["MCP Server"]
-                    MCP --> ANALYZE["AI Analysis"]
-                    ANALYZE --> AI["DeepSeek AI API"]
-                    AI --> SIGNAL["Severity Signal"]
-                    SIGNAL --> MCP
-                    MCP --> DISPATCH["Alert Dispatch"]
-                    DISPATCH --> SA["Slack Agent Service"]
-                    SA --> WEBHOOK["HTTPS Webhook"]
-                    WEBHOOK --> SL["Slack Workspace"]
+                    A["Windows Event Logs"] --> B["Log Agent Service"]
+                    B --> C["MCP Server"]
+                    C --> D["DeepSeek AI API"]
+                    D --> C
+                    C --> E["Slack Agent Service"]
+                    E --> F["Slack Workspace"]
 
-                    classDef blueNode fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
-                    classDef yellowNode fill:#fbbf24,stroke:#fff,stroke-width:2px,color:#000
-                    classDef glassNode fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1),color:#94a3b8
-
-                    class MCP blueNode
-                    class AI yellowNode
-                    class WEL,LA,SA,SL glassNode
+                    style C fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
+                    style D fill:#fbbf24,stroke:#fff,stroke-width:2px,color:#000
                 </div>
             </div>
         </div>
@@ -107,8 +96,8 @@
         </div>
     </footer>
 
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.5/dist/mermaid.min.js"></script>
+    <script>
         mermaid.initialize({
             startOnLoad: true,
             theme: 'dark',
