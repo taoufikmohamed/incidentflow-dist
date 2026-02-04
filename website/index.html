@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -25,10 +27,13 @@
         <div class="container">
             <div class="hero-content">
                 <h2>Automate Windows Incident Response with AI.</h2>
-                <p>Convert overwhelming Event Logs into classified, actionable insights instantly—all while maintaining local control and security.</p>
+                <p>Convert overwhelming Event Logs into classified, actionable insights instantly—all while maintaining
+                    local control and security.</p>
                 <div class="cta-group">
-                    <a href="https://github.com/taoufikmohamed/incidentflow-dist/releases/latest" class="btn-primary">Get Started v1.0</a>
-                    <a href="https://github.com/taoufikmohamed/incidentflow-dist#getting-started" class="btn-secondary">Documentation</a>
+                    <a href="https://github.com/taoufikmohamed/incidentflow-dist/releases/latest"
+                        class="btn-primary">Get Started v1.0</a>
+                    <a href="https://github.com/taoufikmohamed/incidentflow-dist#getting-started"
+                        class="btn-secondary">Documentation</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -43,16 +48,50 @@
             <div class="feature-grid">
                 <div class="feature-card">
                     <h4>🤖 Contextual AI</h4>
-                    <p>Powered by DeepSeek LLM to understand the nuance of error messages, reducing false positives and accelerating MTTR.</p>
+                    <p>Powered by DeepSeek LLM to understand the nuance of error messages, reducing false positives and
+                        accelerating MTTR.</p>
                 </div>
                 <div class="feature-card">
                     <h4>⚡ Real-Time Pushing</h4>
-                    <p>Detects critical Windows errors as they happen and pushes high-fidelity alerts to Slack via a resilient microservices architecture.</p>
+                    <p>Detects critical Windows errors as they happen and pushes high-fidelity alerts to Slack via a
+                        resilient microservices architecture.</p>
                 </div>
                 <div class="feature-card">
                     <h4>🛡️ Enterprise Core</h4>
-                    <p>Runs as managed Windows Services with NSSM. Secured by API key authentication and designed for 24/7 background operation.</p>
+                    <p>Runs as managed Windows Services with NSSM. Secured by API key authentication and designed for
+                        24/7 background operation.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="architecture">
+        <div class="container">
+            <h3>System Architecture</h3>
+            <div class="architecture-wrapper">
+                <pre class="mermaid">
+graph TD
+    subgraph Windows_Server ["Windows Server Environment"]
+        WEL[Windows Event Logs] -->|Tail| LogAgent[Log Analytics Service]
+        LogAgent -->|HTTP POST| MCP[MCP Server (The Brain)]
+        
+        subgraph Services
+            LogAgent
+            MCP
+            SlackAg[Slack Notification Service]
+        end
+
+        MCP -->|Classify| AI[DeepSeek AI API]
+        AI -->|Severity| MCP
+        
+        MCP --"Critical/High"--> SlackAg
+        SlackAg -->|Webhook| Slack[Slack Workspace]
+    end
+
+    style MCP fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
+    style AI fill:#fbbf24,stroke:#fff,stroke-width:2px,color:#000
+    style Services fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1)
+                </pre>
             </div>
         </div>
     </section>
@@ -63,5 +102,20 @@
             <p>&copy; 2026 IncidentFlow. Open source under the MIT License.</p>
         </div>
     </footer>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
 </body>
+
 </html>
