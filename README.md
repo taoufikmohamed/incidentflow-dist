@@ -25,16 +25,16 @@ We provide an automated PowerShell installer to set up everything for you.
 
 1.  **Clone the repository**:
     ```powershell
-    git clone https://github.com/your-repo/incidentflow.git
-    cd incidentflow
+    git clone https://github.com/taoufikmohamed/incidentflow-dist.git
+    cd incidentflow-dist
     ```
 
 2.  **Run the Installer (as Administrator)**:
     ```powershell
-    .\install\install_services.ps1
+    .\install\install_exes.ps1
     ```
     - The script will ask for your API keys (`INCIDENTFLOW_API_KEY`, `DEESEEK_API_KEY`, `SLACK_WEBHOOK_URL`) if they are not already set.
-    - It will install and start all three services automatically.
+    - It will install and start all three standardized services automatically.
 
 ---
 
