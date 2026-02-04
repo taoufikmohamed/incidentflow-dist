@@ -13,7 +13,23 @@ IncidentFlow monitors Windows Event Logs, uses AI to classify the severity of in
 
 ---
 
-## 🛠️ Installation
+### 📥 For Non-Technical Users (Quick Start)
+
+If you are not a developer and just want to run the system, follow these simple steps:
+
+1.  **Download the latest version**: 
+    Go to the [Latest Release](https://github.com/taoufikmohamed/incidentflow-dist/releases/latest) and download the file named **`IncidentFlow-v1.0.0.zip`**.
+2.  **Extract the Files**: 
+    Right-click the downloaded ZIP file and select "Extract All...".
+3.  **Run the Installer**:
+    - Open the extracted folder, then open the `install` folder.
+    - Right-click `install_exes.ps1` and select **"Run with PowerShell"**.
+    - If prompted for Administrator access, click **Yes**.
+    - Follow any on-screen prompts to enter your API keys.
+
+---
+
+## 🛠️ Installation (For Developers)
 
 ### Prerequisites
 - **Python 3.11+** installed and added to PATH.
@@ -21,8 +37,6 @@ IncidentFlow monitors Windows Event Logs, uses AI to classify the severity of in
 - **Administrator Privileges** (required to install services).
 
 ### Quick Start
-We provide an automated PowerShell installer to set up everything for you.
-
 1.  **Clone the repository**:
     ```powershell
     git clone https://github.com/taoufikmohamed/incidentflow-dist.git
