@@ -203,6 +203,55 @@ nav a:hover {
     background: transparent !important;
 }
 
+/* Mermaid Custom Overrides */
+.mermaid svg {
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.2));
+}
+
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node polygon,
+.mermaid .node path {
+    stroke-width: 2px !important;
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.mermaid .node:hover rect,
+.mermaid .node:hover circle,
+.mermaid .node:hover polygon,
+.mermaid .node:hover path {
+    filter: brightness(1.2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.mermaid .edgePath path {
+    stroke: #475569 !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .edgeLabel {
+    background-color: var(--bg-color) !important;
+    color: #94a3b8 !important;
+    font-size: 0.8rem !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+}
+
+.mermaid .cluster rect {
+    fill: rgba(255, 255, 255, 0.03) !important;
+    stroke: rgba(255, 255, 255, 0.1) !important;
+    stroke-dasharray: 5, 5;
+    rx: 15 !important;
+    ry: 15 !important;
+}
+
+.architecture-info {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.2rem;
+    color: #94a3b8;
+}
+
 footer {
     padding: 6rem 0;
     border-top: 1px solid var(--glass-border);

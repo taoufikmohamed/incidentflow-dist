@@ -68,21 +68,29 @@
     <section id="architecture" class="architecture">
         <div class="container">
             <h3>System Architecture</h3>
+            <p class="architecture-info">
+                IncidentFlow operates as a decoupled microservices architecture on your Windows Server. This ensures
+                that log monitoring, AI classification, and external notifications remain resilient and independent.
+            </p>
             <div class="architecture-wrapper">
                 <pre class="mermaid">
 flowchart TD
     subgraph Env ["Windows Server Environment"]
         direction TB
         WEL["Windows Event Logs"] -->|"Polling"| LA["Log Agent Service"]
-        LA -->|"HTTP POST"| MCP["MCP Server"]
+        LA -->|"Secure HTTP"| MCP["MCP Server"]
         MCP -->|"AI Analysis"| AI["DeepSeek AI API"]
-        AI -->|"Severity"| MCP
-        MCP -->|"Critical Alerts"| SA["Slack Agent Service"]
-        SA -->|"Webhook"| SL["Slack Workspace"]
+        AI -->|"Severity Signal"| MCP
+        MCP -->|"Alert Dispatch"| SA["Slack Agent Service"]
+        SA -->|"HTTPS Webhook"| SL["Slack Workspace"]
     end
 
-    style MCP fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
-    style AI fill:#fbbf24,stroke:#fff,stroke-width:2px,color:#000
+    style MCP fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff,rx:10,ry:10
+    style AI fill:#fbbf24,stroke:#fff,stroke-width:2px,color:#000,rx:10,ry:10
+    style LA fill:rgba(255,255,255,0.1),stroke:rgba(255,255,255,0.2),color:#fff,rx:10,ry:10
+    style SA fill:rgba(255,255,255,0.1),stroke:rgba(255,255,255,0.2),color:#fff,rx:10,ry:10
+    style WEL fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1),color:#94a3b8,rx:5,ry:5
+    style SL fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1),color:#94a3b8,rx:5,ry:5
                 </pre>
             </div>
         </div>
@@ -99,12 +107,23 @@ flowchart TD
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({
             startOnLoad: true,
-            theme: 'dark',
+            theme: 'base',
+            themeVariables: {
+                darkMode: true,
+                primaryColor: '#1e293b',
+                primaryTextColor: '#f8fafc',
+                primaryBorderColor: '#334155',
+                lineColor: '#64748b',
+                secondaryColor: '#0f172a',
+                tertiaryColor: '#0f172a',
+                fontFamily: 'Inter'
+            },
             securityLevel: 'loose',
             flowchart: {
                 useMaxWidth: true,
                 htmlLabels: true,
-                curve: 'basis'
+                curve: 'cardinal',
+                padding: 40
             }
         });
     </script>
