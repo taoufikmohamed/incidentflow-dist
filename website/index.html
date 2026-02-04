@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IncidentFlow | AI Incident Response</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">IncidentFlow</h1>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#architecture">Architecture</a>
+                <a href="https://github.com/taoufikmohamed/incidentflow-mcpserver" class="btn-github">View on GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Automate Windows Incident Response with Local AI.</h2>
+                <p>Turn noisy Event Logs into actionable, AI-classified insights locally on your server.</p>
+                <div class="cta-group">
+                    <a href="https://github.com/taoufikmohamed/incidentflow-mcpserver/releases/latest" class="btn-primary">Download v1.0</a>
+                    <a href="#deployment" class="btn-secondary">Read Docs</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="comment"># Incident detected</p>
+                        <p>> Analyzing Event ID 4625...</p>
+                        <p class="success">AI Severity: CRITICAL</p>
+                        <p>> Dispatching to Slack...</p>
+                        <p class="blink">_</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h3>Why IncidentFlow?</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🤖 AI-Powered</h4>
+                    <p>Uses DeepSeek LLM to contextually understand error messages, not just regex matching.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ Real-Time</h4>
+                    <p>Zero-latency detection via Win32 API event tailing.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🛡️ Resilient</h4>
+                    <p>Runs as managed Windows Services. Auto-restarts on failure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Open Source Project by <a href="https://github.com/taoufikmohamed">Taoufik Mohamed</a></p>
+            <p>&copy; 2026 IncidentFlow. MIT License.</p>
+        </div>
+    </footer>
+</body>
+</html>

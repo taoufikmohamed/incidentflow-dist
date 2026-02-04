@@ -1,0 +1,20 @@
+graph TD
+    subgraph Windows_Server [Windows Server Environment]
+        WEL[Windows Event Logs] -->|Tail| LogAgent[Log Analytics Service]
+        LogAgent -->|HTTP POST| MCP[MCP Server (The Brain)]
+        
+        subgraph Services
+            LogAgent
+            MCP
+            SlackAg[Slack Notification Service]
+        end
+
+        MCP -->|Classify| AI[DeepSeek AI API]
+        AI -->|Severity| MCP
+        
+        MCP --Critical/High--> SlackAg
+        SlackAg -->|Webhook| Slack[Slack Workspace]
+    end
+
+    style MCP fill:#f9f,stroke:#333,stroke-width:2px
+    style AI fill:#bbf,stroke:#333,stroke-width:2px

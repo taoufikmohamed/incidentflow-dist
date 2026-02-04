@@ -1,0 +1,28 @@
+# Build and Dist
+build/
+dist/
+*.spec
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+.venv/
+
+# Windows Services
+nssm.exe
+
+# Logs
+logs/
+*.log
+*.err
+
+# Editor
+.vscode/
+.idea/
+
+# OS generated files
+Thumbs.db
+Desktop.ini
