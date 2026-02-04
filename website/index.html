@@ -70,27 +70,28 @@
             <h3>System Architecture</h3>
             <div class="architecture-wrapper">
                 <pre class="mermaid">
-graph TD
-    subgraph Windows_Server ["Windows Server Environment"]
-        WEL[Windows Event Logs] -->|Tail| LogAgent[Log Analytics Service]
-        LogAgent -->|HTTP POST| MCP[MCP Server (The Brain)]
+flowchart TD
+    subgraph WS ["Windows Server Environment"]
+        direction TB
+        WEL["Windows Event Logs"] -->|Tail| LA["Log Analytics Service"]
+        LA -->|HTTP POST| MCP["MCP Server (The Brain)"]
         
-        subgraph Services
-            LogAgent
+        subgraph Services ["Managed Services"]
+            LA
             MCP
-            SlackAg[Slack Notification Service]
+            SA["Slack Notification Service"]
         end
 
-        MCP -->|Classify| AI[DeepSeek AI API]
+        MCP -->|Classify| AI["DeepSeek AI API"]
         AI -->|Severity| MCP
         
-        MCP --"Critical/High"--> SlackAg
-        SlackAg -->|Webhook| Slack[Slack Workspace]
+        MCP -->|"Critical/High"| SA
+        SA -->|Webhook| SL["Slack Workspace"]
     end
 
     style MCP fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
     style AI fill:#fbbf24,stroke:#fff,stroke-width:2px,color:#000
-    style Services fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1)
+    style Services fill:rgba(255,255,255,0.05),stroke:rgba(255,255,255,0.1),color:#fff
                 </pre>
             </div>
         </div>
