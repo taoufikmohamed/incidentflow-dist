@@ -1,6 +1,6 @@
 fastapi
 uvicorn
-requests
+requests>=2.32.0
 pydantic
 pywin32
 pyinstaller
